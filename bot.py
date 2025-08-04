@@ -6,6 +6,7 @@ from telegram.ext import (
 import requests
 from datetime import datetime , timedelta
 import logging
+from key_alive import keep_alive
 
 BOT_TOKEN = "7856875903:AAFtu96gD81lnMjl_DD7sUPhqtYVzNTUGEo"
 WEATHER_API_KEY = "28fd5816e6a25174d0f94d5d3ef910b3"
@@ -115,4 +116,5 @@ app.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND,message_handler))
 app.post_init = commonds
 
 print("Bot running...")
+keep_alive()
 app.run_polling()
